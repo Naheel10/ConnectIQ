@@ -1,6 +1,6 @@
 from urllib.parse import urlencode
 
-from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import RedirectResponse
 from sqlalchemy import desc, or_, select
 from sqlalchemy.orm import Session
@@ -30,6 +30,11 @@ def login(payload: LoginRequest, db: Session = Depends(get_db)):
     if not user or not verify_password(payload.password, user.password_hash):
         raise HTTPException(status_code=401, detail='Invalid credentials')
     return {'token': create_access_token(user.email)}
+
+
+@router.get('/auth/me')
+def auth_me(user: User = Depends(get_current_user)):
+    return {'id': str(user.id), 'email': user.email, 'tenant_id': str(user.tenant_id)}
 
 
 @router.get('/salesforce/oauth/start')
