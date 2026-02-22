@@ -1,1 +1,13 @@
-body{font-family:Arial;background:#f5f7fb;margin:0}.page,.card{max-width:900px;margin:2rem auto;background:white;padding:1rem;border-radius:8px}input,textarea,button{display:block;margin:.5rem 0;padding:.5rem}table{width:100%;border-collapse:collapse}td{border-bottom:1px solid #ddd;padding:.4rem}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}

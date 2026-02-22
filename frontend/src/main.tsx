@@ -5,16 +5,21 @@ import { LoginPage } from './pages/LoginPage'
 import { SetupPage } from './pages/SetupPage'
 import { ChatPage } from './pages/ChatPage'
 import { RecordsPage } from './pages/RecordsPage'
+import { ToastProvider } from './ui/ToastProvider'
 import './styles.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <BrowserRouter>
-    <Routes>
-      <Route path='/login' element={<LoginPage />} />
-      <Route path='/setup' element={<SetupPage />} />
-      <Route path='/chat' element={<ChatPage />} />
-      <Route path='/records' element={<RecordsPage />} />
-      <Route path='*' element={<Navigate to='/login' />} />
-    </Routes>
-  </BrowserRouter>
+  <React.StrictMode>
+    <BrowserRouter>
+      <ToastProvider>
+        <Routes>
+          <Route path='/login' element={<LoginPage />} />
+          <Route path='/setup' element={<SetupPage />} />
+          <Route path='/chat' element={<ChatPage />} />
+          <Route path='/records' element={<RecordsPage />} />
+          <Route path='*' element={<Navigate to='/login' />} />
+        </Routes>
+      </ToastProvider>
+    </BrowserRouter>
+  </React.StrictMode>
 )
