@@ -6,7 +6,7 @@ Production-grade demo web app that syncs Salesforce Opportunities + Contacts int
 1. Copy env file: `cp .env.example .env`
 2. Run app: `docker compose up --build`
 3. Open frontend: http://localhost:5173
-4. Login with `DEMO_USER_EMAIL` / `DEMO_USER_PASSWORD`
+4. Login with `DEMO_USER_EMAIL` / `DEMO_USER_PASSWORD` (default: `demo@connectiq.com`)
 
 ## Demo mode
 - Default sync uses demo Salesforce-like records when real OAuth token is not configured.
@@ -44,3 +44,9 @@ Production-grade demo web app that syncs Salesforce Opportunities + Contacts int
 - Built end-to-end Salesforce-to-RAG analytics platform with incremental sync and vector search on PostgreSQL/pgvector.
 - Implemented grounded conversational analytics with strict per-record citations for auditability.
 - Delivered fully containerized DX (`docker compose up --build`) with demo-mode fallback requiring no external credentials.
+
+
+## Common Issues
+- If login fails, verify `DEMO_USER_EMAIL` / `DEMO_USER_PASSWORD` in `.env` and restart containers (`docker compose up --build`).
+- The demo seed is idempotent and updates the configured demo user password on startup, so changing `.env` does not require a volume wipe.
+- To fully reset DB state, run `docker compose down -v` and then `docker compose up --build`.
