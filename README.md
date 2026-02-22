@@ -8,6 +8,11 @@ Production-grade demo web app that syncs Salesforce Opportunities + Contacts int
 3. Open frontend: http://localhost:5173
 4. Login with `DEMO_USER_EMAIL` / `DEMO_USER_PASSWORD` (default: `demo@connectiq.com`)
 
+## Frontend UI notes
+- The frontend is React + TypeScript + Vite with a lightweight TailwindCSS setup through the Tailwind CDN script (no large UI framework).
+- The app now includes a shared B2B SaaS-style layout (top navigation, centered responsive container, and card-based panels) across Setup, Chat, and Records pages.
+- API and auth errors surface as toast notifications, and login validation errors render inline on the form.
+
 ## Demo mode
 - Default sync uses demo Salesforce-like records when real OAuth token is not configured.
 - In **Setup**, keep `Demo mode` checked and click **Run Sync**.
